@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+            font-size: 20px;
+        }
+        #no {
+            background-color: red;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine?</h1>
+        <div class="buttons">
+            <button id="yes" onclick="goToDateNight()">Yes</button>
+            <button id="no" onclick="shrinkNoButton()">No</button>
+        </div>
+    </div>
+    
+    <script>
+        let noClickCount = 0;
+        function shrinkNoButton() {
+            noClickCount++;
+            if (noClickCount <= 20) {
+                let noButton = document.getElementById('no');
+                let yesButton = document.getElementById('yes');
+                noButton.style.fontSize = `${20 - noClickCount}px`;
+                noButton.style.padding = `${10 - (noClickCount / 2)}px ${20 - noClickCount}px`;
+                yesButton.style.fontSize = `${20 + noClickCount}px`;
+            }
+        }
+        
+        function goToDateNight() {
+            window.location.href = "date.html";
+        }
+    </script>
+</body>
+</html>
